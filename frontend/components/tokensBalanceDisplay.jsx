@@ -7,6 +7,7 @@ export default function TokenBalancesPanel({ walletAddress, chain }) {
   const [isLoading, setIsloading] = useState(false);
   const { address, isConnected, isDisconnected } = useAccount();
   const [propAddress, setPropAddress] = useState();
+
   useEffect(() => {
     const getNFTs = async () => {
       setIsloading(true);
@@ -46,7 +47,7 @@ export default function TokenBalancesPanel({ walletAddress, chain }) {
               )} `
             : `${propAddress?.slice(0, 6)}...${propAddress?.slice(38)}`}
         </h2>
-        
+
         <div className={styles.tokens_container}>
           {tokensBalance?.length &&
             tokensBalance.map((token) => {

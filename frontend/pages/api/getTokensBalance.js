@@ -78,7 +78,7 @@ export default async function handler(
 
 const settings = {
   apiKey: process.env.ALCHEMY_API_KEY,
-  network: Network.OPT_GOERLI,
+  network: Network.ETH_GOERLI,
 };
 
 const alchemy = new Alchemy(settings);

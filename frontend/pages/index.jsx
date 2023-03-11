@@ -7,8 +7,10 @@ export default function Home() {
     <div>
       <main className={styles.main}>
         
-        {/* pass chain id to display, here */}
-        <TokensBalanceDisplay address={""} chain={"ETH_GOERLI"} />
+        
+        {/* TODO: pass dynamic chain id to display, here */}
+        <TokensBalanceDisplay address={""} chain={"OPT_GOERLI"} />
+
 
         {/* <InstructionsComponent></InstructionsComponent> */}
 
