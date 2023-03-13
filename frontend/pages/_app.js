@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
+import { ChakraProvider } from '@chakra-ui/react'
 
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
@@ -32,7 +33,7 @@ const { chains, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-	appName: "My Alchemy DApp",
+	appName: "zkSync TX Bundler",
 	chains,
 });
 
@@ -45,17 +46,19 @@ const wagmiClient = createClient({
 export { WagmiConfig, RainbowKitProvider };
 function MyApp({ Component, pageProps }) {
 	return (
-		<WagmiConfig client={wagmiClient}>
-			<RainbowKitProvider
-				modalSize="compact"
-				initialChain={process.env.NEXT_PUBLIC_DEFAULT_CHAIN}
-				chains={chains}
-			>
-				<MainLayout>
-					<Component {...pageProps} />
-				</MainLayout>
-			</RainbowKitProvider>
-		</WagmiConfig>
+		<ChakraProvider>
+			<WagmiConfig client={wagmiClient}>
+				<RainbowKitProvider
+					modalSize="compact"
+					initialChain={process.env.NEXT_PUBLIC_DEFAULT_CHAIN}
+					chains={chains}
+				>
+					<MainLayout>
+						<Component {...pageProps} />
+					</MainLayout>
+				</RainbowKitProvider>
+			</WagmiConfig>
+		</ChakraProvider>
 	);
 }
 

@@ -1,0 +1,45 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\gaffn\\Desktop\\appdev\\solidity\\zksync-tx-bundler\\backend\\contracts\\Greeter.sol": {
+      "lastModificationDate": 1678676319346,
+      "contentHash": "8a00977116eee07deda5e1ed42477751",
+      "sourceName": "contracts/Greeter.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.1",
+          "compilerSource": "binary",
+          "settings": {
+            "compilerPath": "",
+            "experimental": {},
+            "isSystem": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Greeter"
+      ]
+    }
+  }
+}
