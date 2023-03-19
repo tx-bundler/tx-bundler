@@ -66,10 +66,12 @@ export default function Bundler() {
             >
               <Text
                 color={"gray.600"}
-                fontWeight={500}
-                fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                fontWeight={700}
+                fontSize={{ base: "2xl", sm: "2xl", md: "4xl" }}
+                className={styles.textGradient}
+                py={4}
               >
-                Your Custom zAAp
+                Build Your Custom zAAp
                 <br />
               </Text>
               <br />
@@ -77,19 +79,19 @@ export default function Bundler() {
               <SimpleThreeColumns />
               <br />
               <br />
-              {/* <Button
+              <Button
                 fontSize="24px"
-                colorScheme={"blue"}
+                colorScheme={"green"}
                 rounded={"full"}
                 px={12}
                 py={10}
                 onClick={() => router.push("/bundler")}
                 _hover={{
-                  bg: "blue.600",
+                  bg: "orange.500",
                 }}
               >
                 Swap Now!
-              </Button> */}
+              </Button>
             </Stack>
           </Stack>
         </Container>

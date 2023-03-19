@@ -36,7 +36,7 @@ export default function YourZaaps() {
             >
               Batch transactions, made
               <br />
-              <Text as={"span"} fontWeight={700} color={"blue.500"}>
+              <Text as={"span"} fontWeight={700} color={"orange.500"}>
                 simple.
               </Text>
             </Heading>
@@ -68,6 +68,15 @@ export default function YourZaaps() {
               Out of ETH? No worries! Pay in USDC and keep your transactions
               moving with our account abstraction product.
             </Text>
+
+            <Card className={`${styles.card} ${styles.bgBlur}`}>
+              <Text fontSize={{ base: "xl", sm: "xl", md: "2xl" }} fontWeight={500} className={styles.textGradient}>card-alt</Text>
+            </Card>
+            <Button
+              className={`${styles.btnGradient} ${styles.btn} ${styles.btnGlow} ${styles.btnSemiTransparent}`}
+            >
+              asd
+            </Button>
 
             {/* JUNK */}
             {/* TODO: pass dynamic chain id to display, here */}

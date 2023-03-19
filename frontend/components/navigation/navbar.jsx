@@ -1,6 +1,7 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import styles from "../../styles/Navbar.module.css";
+// import styles from "../../styles/Navbar.module.css";
 import { useRouter } from "next/router";
+import styles from "../../styles/Home.module.css";
 
 import {
   Box,
@@ -37,7 +38,13 @@ export default function Navbar() {
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box>
             <Link href="/">
-              <Image src={ZKS} alt="logo" width={120} height={120} onClick={() => router.push("/")} />
+              <Image
+                src={ZKS}
+                alt="logo"
+                width={180}
+                height={180}
+                onClick={() => router.push("/")}
+              />
             </Link>
           </Box>
 
@@ -50,10 +57,31 @@ export default function Navbar() {
               alignItems="center"
               as="b"
             >
-              <Link onClick={() => router.push("/")}>Home</Link>
-              <Link onClick={() => router.push("/your-zaaps")}>Your zAAps</Link>
+              <Link
+                _hover={{
+                  color: "orange.500",
+                }}
+                onClick={() => router.push("/")}
+              >
+                Home
+              </Link>
+              <Link
+                _hover={{
+                  color: "orange.500",
+                }}
+                onClick={() => router.push("/your-zaaps")}
+              >
+                Your zAAps
+              </Link>
               {/* <Link onClick={() => router.push("/swap")}>Swap</Link> */}
-              <Link onClick={() => router.push("/bundler")}>Bundler</Link>
+              <Link
+                _hover={{
+                  color: "orange.500",
+                }}
+                onClick={() => router.push("/bundler")}
+              >
+                Bundler
+              </Link>
               <Box px={40}>
                 <Menu>
                   <ConnectButton></ConnectButton>

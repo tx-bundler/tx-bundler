@@ -36,7 +36,7 @@ export default function Home() {
             >
               Batch transactions, made
               <br />
-              <Text as={"span"} fontWeight={700} color={"blue.500"}>
+              <Text as={"span"} fontWeight={700} color={"green.500"}>
                 simple.
               </Text>
             </Heading>
@@ -80,14 +80,16 @@ export default function Home() {
               position={"relative"}
             >
               <Button
+
+              className="btn btn-gradient-border btn-glow"
                 fontSize="24px"
-                colorScheme={"blue"}
+                colorScheme={"green"}
                 rounded={"full"}
                 px={12}
                 py={10}
                 onClick={() => router.push("/bundler")}
                 _hover={{
-                  bg: "blue.600",
+                  bg: "orange.500",
                 }}
               >
                 Swap Now!

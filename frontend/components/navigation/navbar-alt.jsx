@@ -17,6 +17,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import styles from "../../styles/Home.module.css";
 
 const Links = [
   "Withdraw-Swap-Send",
@@ -56,7 +57,7 @@ export default function Simple() {
 
           {/* Link Names defined above */}
           <HStack spacing={6} alignItems={"center"}>
-            <Box fontSize="lg" color="gray.800" fontWeight={800}>
+            <Box fontSize="lg" color="gray.800" fontWeight={800} className={styles.textGradient}>
               Quick ZAAPS:
             </Box>
             <HStack
