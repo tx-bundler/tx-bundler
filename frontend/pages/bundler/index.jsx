@@ -11,12 +11,14 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
-import styles from "../styles/Home.module.css";
-import TokensBalanceDisplay from "../components/tokensBalanceDisplay.jsx";
+import styles from "../../styles/Home.module.css";
+import TokensBalanceDisplay from "../../components/tokensBalanceDisplay.jsx";
 import { useRouter } from "next/router";
-import ZKS from "../public/zks.png";
+import ZKS from "../../public/zks.png";
+import NavbarAlt from "../../components/navigation/navbar-alt";
+import SimpleThreeColumns from "../../components/threeColumn";
 
-export default function Home() {
+export default function Bundler() {
   const router = useRouter();
 
   return (
@@ -26,22 +28,21 @@ export default function Home() {
           <Stack
             as={Box}
             textAlign={"center"}
-            spacing={{ base: 10, md: 20 }}
-            py={{ base: 10, md: 20 }}
+            spacing={{ base: 4, md: 4 }}
+            py={{ base: 4, md: 4 }}
           >
-            <Heading
+            {/* <Heading
               fontWeight={700}
               fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
-              lineHeight={"110%"}
             >
               Batch transactions, made
               <br />
               <Text as={"span"} fontWeight={700} color={"blue.500"}>
                 simple.
               </Text>
-            </Heading>
-
-            <Container centerContent maxW={"3xl"}>
+            </Heading> */}
+            {/* Image Container */}
+            {/* <Container centerContent maxW={"3xl"}>
               <Image
                 src={ZKS}
                 alt="logo"
@@ -49,29 +50,13 @@ export default function Home() {
                 height={400}
                 onClick={() => router.push("/")}
               ></Image>
-            </Container>
-
-            <Text
-              color={"gray.600"}
-              fontWeight={500}
-              fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-            >
-              Save time and money with bundle transactions, combine multiple
-              transactions into one and pay only one gas fee!
-              <br />
-            </Text>
-            <Text
-              color={"gray.700"}
-              fontWeight={500}
-              fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-            >
-              Out of ETH? No worries! Pay in USDC and keep your transactions
-              moving with our account abstraction product.
-            </Text>
-
+            </Container> */}
+            {/* navbar-alt component */}
+            <NavbarAlt></NavbarAlt>
+            {/* JUNK */}
             {/* TODO: pass dynamic chain id to display, here */}
-            <TokensBalanceDisplay address={""} chain={"ETH_GOERLI"} />
-
+            {/* <TokensBalanceDisplay address={""} chain={"ETH_GOERLI"} /> */}
+            <br /> <br />
             <Stack
               direction={"column"}
               spacing={3}
@@ -79,7 +64,20 @@ export default function Home() {
               alignSelf={"center"}
               position={"relative"}
             >
-              <Button
+              <Text
+                color={"gray.600"}
+                fontWeight={500}
+                fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+              >
+                Your Custom zAAp
+                <br />
+              </Text>
+              <br />
+              <br />
+              <SimpleThreeColumns />
+              <br />
+              <br />
+              {/* <Button
                 fontSize="24px"
                 colorScheme={"blue"}
                 rounded={"full"}
@@ -91,7 +89,7 @@ export default function Home() {
                 }}
               >
                 Swap Now!
-              </Button>
+              </Button> */}
             </Stack>
           </Stack>
         </Container>

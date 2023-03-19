@@ -11,12 +11,12 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
-import styles from "../styles/Home.module.css";
-import TokensBalanceDisplay from "../components/tokensBalanceDisplay.jsx";
+import styles from "../../styles/Home.module.css";
+import TokensBalanceDisplay from "../../components/tokensBalanceDisplay.jsx";
 import { useRouter } from "next/router";
-import ZKS from "../public/zks.png";
+import ZKS from "../../public/zks.png";
 
-export default function Home() {
+export default function YourZaaps() {
   const router = useRouter();
 
   return (
@@ -69,8 +69,9 @@ export default function Home() {
               moving with our account abstraction product.
             </Text>
 
+            {/* JUNK */}
             {/* TODO: pass dynamic chain id to display, here */}
-            <TokensBalanceDisplay address={""} chain={"ETH_GOERLI"} />
+            {/* <TokensBalanceDisplay address={""} chain={"ETH_GOERLI"} /> */}
 
             <Stack
               direction={"column"}
@@ -85,7 +86,7 @@ export default function Home() {
                 rounded={"full"}
                 px={12}
                 py={10}
-                onClick={() => router.push("/bundler")}
+                onClick={() => router.push("/your-zaaps")}
                 _hover={{
                   bg: "blue.600",
                 }}

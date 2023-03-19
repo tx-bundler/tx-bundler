@@ -51,8 +51,9 @@ export default function Navbar() {
               as="b"
             >
               <Link onClick={() => router.push("/")}>Home</Link>
-              <Link onClick={() => router.push("/swap")}>Swap</Link>
-              <Link onClick={() => router.push("/")}>Docs</Link>
+              <Link onClick={() => router.push("/your-zaaps")}>Your zAAps</Link>
+              {/* <Link onClick={() => router.push("/swap")}>Swap</Link> */}
+              <Link onClick={() => router.push("/bundler")}>Bundler</Link>
               <Box px={40}>
                 <Menu>
                   <ConnectButton></ConnectButton>
