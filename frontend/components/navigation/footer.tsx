@@ -7,9 +7,9 @@ import {
     useColorModeValue,
     VisuallyHidden,
   } from '@chakra-ui/react';
-  import { ReactNode } from 'react';
+  import { ReactNode, SVGProps } from 'react';
   
-  const Logo = (props) => {
+  const Logo = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => {
     return (
       <svg
         height={32}
@@ -31,7 +31,7 @@ import {
   export default function SmallWithLogoLeft() {
     return (
       <Box
-        bg={useColorModeValue('gray.50', 'gray.900')}
+      bgImage={"linear-gradient(to right, rgb(247 255 0), rgb(182 49 167))"}
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container
           as={Stack}
@@ -42,7 +42,7 @@ import {
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
           <Logo />
-          <Text>© 2023 zkSync TX-Bundler. All rights reserved</Text>
+          <Text fontWeight={500}>© 2023 zkSync TX-Bundler. All rights reserved</Text>
         </Container>
       </Box>
     );

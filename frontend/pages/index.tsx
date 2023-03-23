@@ -12,7 +12,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import styles from "../styles/Home.module.css";
-import TokensBalanceDisplay from "../components/tokensBalanceDisplay.jsx";
+import TokensBalanceDisplay from "../components/tokensBalanceDisplay";
 import { useRouter } from "next/router";
 import ZKS from "../public/zks.png";
 
@@ -36,7 +36,7 @@ export default function Home() {
             >
               Batch transactions, made
               <br />
-              <Text as={"span"} fontWeight={700} color={"green.500"}>
+              <Text as={"span"} fontWeight={700} color={"yellow.500"}>
                 simple.
               </Text>
             </Heading>
@@ -52,7 +52,7 @@ export default function Home() {
             </Container>
 
             <Text
-              color={"gray.600"}
+              color={"white"}
               fontWeight={500}
               fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
             >
@@ -61,7 +61,7 @@ export default function Home() {
               <br />
             </Text>
             <Text
-              color={"gray.700"}
+              color={"white"}
               fontWeight={500}
               fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
             >
@@ -70,7 +70,7 @@ export default function Home() {
             </Text>
 
             {/* TODO: pass dynamic chain id to display, here */}
-            <TokensBalanceDisplay address={""} chain={"ETH_GOERLI"} />
+            {/* <TokensBalanceDisplay address={""} chain={"ETH_GOERLI"} /> */}
 
             <Stack
               direction={"column"}
@@ -79,19 +79,21 @@ export default function Home() {
               alignSelf={"center"}
               position={"relative"}
             >
-              <Button
-
-              className="btn btn-gradient-border btn-glow"
-                fontSize="24px"
-                colorScheme={"green"}
-                rounded={"full"}
-                px={12}
-                py={10}
-                onClick={() => router.push("/bundler")}
-                _hover={{
-                  bg: "orange.500",
-                }}
-              >
+                  <Button
+                    fontSize="24px"
+                    transition={"all 0.3s ease"}
+                    colorScheme={"blue"}
+                    bgImage={"linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"}
+                    border={"1"}
+                    rounded={"full"}
+                    px={12}
+                    py={8}
+                    _hover={{
+                      border: "1px solid rgba(var(--primary-color), 0.5)",
+                      color: "yellow",
+                      transition: "all 2s ease",
+                    }}
+                    onClick={() => router.push("/your-zaaps")}>
                 Swap Now!
               </Button>
             </Stack>

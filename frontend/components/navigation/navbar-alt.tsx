@@ -25,7 +25,7 @@ const Links = [
   "Withdraw-Swap-Deposit",
 ];
 
-const NavLink = ({ children }) => (
+const NavLink = ({ children }: any) => (
   <Link
     px={2}
     py={1}

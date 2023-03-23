@@ -14,7 +14,6 @@ import {
 import styles from "../../styles/Home.module.css";
 import TokensBalanceDisplay from "../../components/tokensBalanceDisplay.jsx";
 import { useRouter } from "next/router";
-import ZKS from "../../public/zks.png";
 import NavbarAlt from "../../components/navigation/navbar-alt";
 import SimpleThreeColumns from "../../components/threeColumn";
 

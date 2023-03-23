@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAccount } from "wagmi";
 import styles from "../styles/TokenBalancesDisplay.module.css";
 
-export default function TokenBalancesPanel({ walletAddress, chain }) {
+export default function TokenBalancesPanel({ walletAddress, chain }: any) {
   const [tokensBalance, setTokensBalance] = useState();
   const [isLoading, setIsloading] = useState(false);
   const { address, isConnected, isDisconnected } = useAccount();

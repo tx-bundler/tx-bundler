@@ -1,11 +1,15 @@
 
 .main {
 	padding: 2rem 0;
+	background-image: linear-gradient(to bottom, rgb(15, 17, 15), rgb(0,0,0));
 	flex: 1;
+	background-size: cover;
+	color: #ffffff;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	
 }
 
 .card {

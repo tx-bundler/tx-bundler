@@ -8,7 +8,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  SwapTableModal,
   Box,
   Button,
   Card,
@@ -28,6 +27,7 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
+import styles from "../../styles/Home.module.css";
 
 export default function SwapModal() {
   const OverlayOne = () => (
@@ -53,20 +53,26 @@ export default function SwapModal() {
     <>
       <Button
         fontSize="24px"
+        transition={"all 0.3s ease"}
         colorScheme={"blue"}
+        bgImage={"linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"}
+        border={"1"}
         rounded={"full"}
         px={12}
         py={8}
         _hover={{
-          bg: "red.500",
+          border: "1px solid rgba(var(--primary-color), 0.5)",
+          color: "yellow",
+          transition: "all 3s ease",
         }}
         onClick={() => {
           setOverlay(<OverlayOne />);
           onOpen();
         }}
       >
-        Swap
+        zAAAAP
       </Button>
+
       {/* <Button
         fontSize="24px"
         colorScheme={"blue"}
@@ -103,52 +109,12 @@ export default function SwapModal() {
 
             <br />
 
-            <Text fontWeight="600" color={"gray.600"}>
-              Select Pool(s)
-            </Text>
-
-            <br />
-
-            <Container maxW={"3xl"}>
-              <TableContainer>
-                <Table
-                  style={{ borderCollapse: "separate", borderSpacing: "0 1em" }}
-                  variant="simple"
-                  size="sm"
-                >
-                  <Thead>
-                    <Tr>
-                      <Th>Available Pools</Th>
-                      <Th>Gas Fee</Th>
-                    </Tr>
-                  </Thead>
-
-                  <Tbody>
-                    <Tr>
-                      <Td>Uniswap</Td>
-                      <Td>$0.00011</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>1inch</Td>
-                      <Td>$0.0038</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>Balancer</Td>
-                      <Td>$0.0000042</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>MetaMask</Td>
-                      <Td>$0.00032</Td>
-                    </Tr>
-                  </Tbody>
-                </Table>
-              </TableContainer>
-            </Container>
+            <Container maxW={"3xl"}></Container>
 
             <br />
 
             <Text fontWeight="600" color={"gray.600"}>
-              Approx. Pool Output
+              Approx. Gas Fee - Subsidized by Paymsaster
             </Text>
             <br />
           </ModalBody>

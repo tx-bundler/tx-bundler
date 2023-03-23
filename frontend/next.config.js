@@ -1,11 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	reactStrictMode: true,
-};
+  reactStrictMode: true,
+  transpilePackages: ['@argent/login-react', 'tslib']
+}
 
-module.exports = {
-	env: {
-	},
-};
-
-module.exports = nextConfig;
+module.exports = nextConfig

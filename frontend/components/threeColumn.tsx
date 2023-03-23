@@ -15,7 +15,7 @@ import {
 import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
 import styles from "../styles/Home.module.css";
 
-const Feature = ({ title, text }) => {
+const Feature = ({ title, text }: any) => {
   return (
     <Stack>
       <Text fontWeight={600}>{title}</Text>
