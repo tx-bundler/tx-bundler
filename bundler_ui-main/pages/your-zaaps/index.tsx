@@ -16,8 +16,7 @@ import {
   Input,
 } from "@chakra-ui/react";
 import styles from "../../styles/Home.module.css";
-import SwapModal from "../../components/SwapModal";
-import SwapTableModal from "../../components/SwapTableModal";
+
 import TokensBalanceDisplay from "../../components/tokensBalanceDisplay";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -533,7 +532,6 @@ export default function Swap() {
                     <div>Transaction: {JSON.stringify(data2)}</div>
                   )}
                 </Text>
-                {/* <SwapModal isOpen={isOpen} onClose={() => setIsOpen(false)} /> */}
               </Container>
 
               <br /> <br /> <br />
@@ -558,8 +556,28 @@ export default function Swap() {
                   <br />
                   ....
                 </Text>
+                <Button
+                  fontSize="24px"
+                  transition={"all 0.3s ease"}
+                  colorScheme={"blue"}
+                  bgImage={
+                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
+                  }
+                  border={"1"}
+                  rounded={"full"}
+                  px={12}
+                  py={8}
+                  _hover={{
+                    border: "1px solid rgba(var(--primary-color), 0.5)",
+                    color: "yellow",
+                    transition: "all 2s ease",
+                  }}
+                  onClick={() => router.push("/your-zaaps")}
+                >
+                  Swap
+                </Button>
 
-                <SwapModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+
               </Container>
               <Container centerContent maxW={"3xl"} py={8}>
                 <Text
@@ -575,7 +593,27 @@ export default function Swap() {
                   testnet), withdraw USDC and swap ETH to perform desired
                   action.
                 </Text>
-                <SwapModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+                <Button
+                  fontSize="24px"
+                  transition={"all 0.3s ease"}
+                  colorScheme={"blue"}
+                  bgImage={
+                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
+                  }
+                  border={"1"}
+                  rounded={"full"}
+                  px={12}
+                  py={8}
+                  _hover={{
+                    border: "1px solid rgba(var(--primary-color), 0.5)",
+                    color: "yellow",
+                    transition: "all 2s ease",
+                  }}
+                  onClick={() => router.push("/your-zaaps")}
+                >
+                  Swap
+                </Button>
+
               </Container>
               <Container centerContent maxW={"3xl"} py={8}>
                 <Text
@@ -589,7 +627,27 @@ export default function Swap() {
                   <br />
                   ....
                 </Text>
-                <SwapModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+                <Button
+                  fontSize="24px"
+                  transition={"all 0.3s ease"}
+                  colorScheme={"blue"}
+                  bgImage={
+                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
+                  }
+                  border={"1"}
+                  rounded={"full"}
+                  px={12}
+                  py={8}
+                  _hover={{
+                    border: "1px solid rgba(var(--primary-color), 0.5)",
+                    color: "yellow",
+                    transition: "all 2s ease",
+                  }}
+                  onClick={() => router.push("/your-zaaps")}
+                >
+                  Swap
+                </Button>
+
               </Container>
               <Container centerContent maxW={"3xl"} py={8}>
                 <Text
@@ -603,7 +661,26 @@ export default function Swap() {
                   <br />
                   ....
                 </Text>
-                <SwapModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+                <Button
+                  fontSize="24px"
+                  transition={"all 0.3s ease"}
+                  colorScheme={"blue"}
+                  bgImage={
+                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
+                  }
+                  border={"1"}
+                  rounded={"full"}
+                  px={12}
+                  py={8}
+                  _hover={{
+                    border: "1px solid rgba(var(--primary-color), 0.5)",
+                    color: "yellow",
+                    transition: "all 2s ease",
+                  }}
+                  onClick={() => router.push("/your-zaaps")}
+                >
+                  Swap
+                </Button>
               </Container>
             </Stack>
           </Stack>
