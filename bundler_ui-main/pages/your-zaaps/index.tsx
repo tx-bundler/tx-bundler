@@ -286,9 +286,9 @@ export default function Swap() {
              
 */
 
-  const handleOpenModal = () => {
-    setIsOpen(true);
-  };
+  // const handleOpenModal = () => {
+  //   setIsOpen(true);
+  // };
 
   return (
     <div>
@@ -329,6 +329,7 @@ export default function Swap() {
                   color={"white"}
                   fontWeight={400}
                   fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                  py={2}
                 >
                   zkSync Token Balance
                 </Text>

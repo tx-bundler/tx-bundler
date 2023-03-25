@@ -60,29 +60,11 @@ export default function SwapModal() {
           bg: "red.500",
         }}
         onClick={() => {
-          setOverlay(<OverlayOne />);
           onOpen();
         }}
       >
         Swap
       </Button>
-      {/* <Button
-        fontSize="24px"
-        colorScheme={"blue"}
-        bg={"green.500"}
-        rounded={"full"}
-        px={12}
-        py={8}
-        _hover={{
-          bg: "blue.600",
-        }}
-        onClick={() => {
-          setOverlay(<OverlayTwo />);
-          onOpen();
-        }}
-      >
-        Swap
-      </Button> */}
 
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
