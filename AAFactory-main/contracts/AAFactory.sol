@@ -22,7 +22,12 @@ contract AAFactory {
                 uint128(0),
                 abi.encodeCall(
                     DEPLOYER_SYSTEM_CONTRACT.create2Account,
-                    (salt, aaBytecodeHash, abi.encode(owner), IContractDeployer.AccountAbstractionVersion.Version1)
+                    (
+                        salt,
+                        aaBytecodeHash,
+                        abi.encode(owner),
+                        IContractDeployer.AccountAbstractionVersion.Version1
+                    )
                 )
             );
         require(success, "Deployment failed");
@@ -30,5 +35,3 @@ contract AAFactory {
         (accountAddress) = abi.decode(returnData, (address));
     }
 }
-
-

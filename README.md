@@ -28,7 +28,7 @@ Backend & Smart Contracts:
 zkSync, zkSync Era Testnet, Hardhat, 
 
 Frontend:
-Next.js, Charka, WAGMI, ethers.js, RainbowKit
+Next.js, Charka, ethers.js, WAGMI, RainbowKit
 
 Integrations:
 Mute.io
@@ -41,12 +41,8 @@ Custom Solutions:
 
 ## 🟢 How to Start
 
-> cd /backend
+> yarn install on all SC
 >
-> npm install
+> cd bundler_ui-main
 >
-> cd /frontend
->
-> npm install
->
-> npm run dev
+> yarn dev

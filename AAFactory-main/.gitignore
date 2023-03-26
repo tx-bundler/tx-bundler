@@ -1,6 +1,7 @@
 node_modules
 .env
 
-/deploy
 /artifacts-zk
 /cache-zk
+
+/deploy
