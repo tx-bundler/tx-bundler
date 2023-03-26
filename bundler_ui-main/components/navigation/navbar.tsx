@@ -51,8 +51,8 @@ export default function Navbar() {
               h={16}
               justifyContent={"space-between"}
               direction={"row"}
-              fontSize={"20px"}
-              spacing={28}
+              fontSize={"18px"}
+              spacing={24}
               display="flex"
               color={"black"}
               alignItems={"center"}
@@ -74,6 +74,15 @@ export default function Navbar() {
                 }}
                 onClick={() => router.push("/your-zaaps")}
               >
+                zAAp
+              </Link>
+              <Link
+                _hover={{
+                  color: "purple.100",
+                  transition: "all 1s ease",
+                }}
+                onClick={() => router.push("/bundler")}
+              >
                 Your zAAps
               </Link>
               <Link
@@ -84,6 +93,15 @@ export default function Navbar() {
                 onClick={() => router.push("/community")}
               >
                 Hottest zAAps!
+              </Link>
+              <Link
+                _hover={{
+                  color: "purple.100",
+                  transition: "all 1s ease",
+                }}
+                onClick={() => router.push("/docs")}
+              >
+                Docs
               </Link>
             </Stack>
           </Flex>

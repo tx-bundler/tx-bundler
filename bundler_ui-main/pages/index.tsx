@@ -15,6 +15,7 @@ import styles from "../styles/Home.module.css";
 import TokensBalanceDisplay from "../components/tokensBalanceDisplay";
 import { useRouter } from "next/router";
 import ZKS from "../public/zks.png";
+import Bolt1 from "../public/bolt1.png"
 
 export default function Home() {
   const router = useRouter();
@@ -43,7 +44,7 @@ export default function Home() {
 
             <Container centerContent maxW={"3xl"}>
               <Image
-                src={ZKS}
+                src={Bolt1}
                 alt="logo"
                 width={400}
                 height={400}

@@ -14,6 +14,7 @@ import {
   TableContainer,
   Link,
   Input,
+  Flex,
 } from "@chakra-ui/react";
 import styles from "../../styles/Home.module.css";
 
@@ -23,7 +24,6 @@ import Image from "next/image";
 import React, { FC, useEffect, useState, useCallback, useMemo } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
-import { IEthereumProvider } from "@argent/login-react";
 import * as zksync from "zksync-web3";
 import {
   useAccount,
@@ -194,7 +194,7 @@ export default function Swap() {
     console.log("config 3", config3);
     console.log(contract);
     const accountAddress = await signer.getAddress();
-    const account = new ethers.Contract(accountAddress, signer);
+    const account = new ethers.Contract(accountAddress, RouterAbi, signer);
 
     const response = await Router.swap(
       paths, // paths
@@ -324,7 +324,7 @@ export default function Swap() {
                 fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
                 padding={1}
               >
-                <Text
+                {/* <Text
                   color={"white"}
                   fontWeight={400}
                   fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
@@ -332,96 +332,116 @@ export default function Swap() {
                 >
                   zkSync Token Balance
                 </Text>
-                <TokensBalanceDisplay />
+                <TokensBalanceDisplay /> */}
                 <br /> <br />
                 {/* Approve Section */}
-                <Text
-                  color={"red.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                >
-                  #1
-                </Text>
-                <Text
-                  color={"gray.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                >
-                  Approve spending and set CAP LIMIT on your transactions.
-                </Text>
-                <br />
                 <Container maxW={"3xl"}>
-                  <Button
-                    fontSize="24px"
-                    transition={"all 0.3s ease"}
-                    colorScheme={"blue"}
-                    bgImage={
-                      "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
-                    }
-                    border={"1"}
-                    rounded={"full"}
-                    px={12}
-                    py={8}
-                    _hover={{
-                      border: "1px solid rgba(var(--primary-color), 0.5)",
-                      color: "yellow",
-                      transition: "all 2s ease",
-                    }}
-                    disabled={!write1}
-                    onClick={handleApprove}
-                  >
-                    {" "}
-                    Approve
-                  </Button>
+                  <Flex align="center">
+                    <Text
+                      color={"red.100"}
+                      fontWeight={500}
+                      fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                    >
+                      #1
+                    </Text>
+                    <Text
+                      color={"gray.100"}
+                      fontWeight={500}
+                      fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                      px={16}
+                    >
+                      Approve and set spending cap.
+                    </Text>
+                    <br />
+                    <br />
+
+                    <Button
+                      fontSize="24px"
+                      transition={"all 0.3s ease"}
+                      colorScheme={"blue"}
+                      bgImage={
+                        "linear-gradient(to right, RGB(220,77,1), RGB(234, 206, 9))"
+                      }
+                      fontWeight={700}
+                      border={"1"}
+                      rounded={"full"}
+                      px={12}
+                      py={8}
+                      _hover={{
+                        border: "1px solid rgba(var(--primary-color), 0.5)",
+                        color: "black",
+                        transition: "all 2s ease",
+                      }}
+                      disabled={!write1}
+                      onClick={handleApprove}
+                    >
+                      {" "}
+                      APPROVE
+                    </Button>
+                  </Flex>
                 </Container>
                 <br />
                 <br />
                 {/* Swap */}
-                <Text
-                  color={"red.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                >
-                  #2
-                </Text>
-                <Text
-                  color={"gray.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                >
-                  Swap.
-                </Text>
                 <br />
                 <Text
+                  maxW={"lg"}
                   color={"red.100"}
                   fontWeight={600}
                   fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
                 >
-                  USDC --&#62; ETH --&#62; WETH --&#62; DAI (One Click) USDC
-                  --&#62; ETH --&#62; WETH --&#62; APPROVE --&#62; DAI
+                  USDC --&#62; Borrow ETH from LP --&#62; Swap ETH --&#62; WETH
+                  --&#62; DAI
+                  <br />
+                  <br />
+                  Using WETH we approve WETH for allowance
+                  <br />
+                  <br />3 transactions for one click
                 </Text>
                 <br />
-                <Button
-                  fontSize="24px"
-                  transition={"all 0.3s ease"}
-                  colorScheme={"blue"}
-                  bgImage={
-                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
-                  }
-                  border={"1"}
-                  rounded={"full"}
-                  px={12}
-                  py={8}
-                  _hover={{
-                    border: "1px solid rgba(var(--primary-color), 0.5)",
-                    color: "yellow",
-                    transition: "all 2s ease",
-                  }}
-                  onClick={handleSwap}
-                >
-                  {" "}
-                  SWAP{" "}
-                </Button>
+                <Container maxW={"3xl"}>
+                  <Flex align="center">
+                    <Text
+                      color={"red.100"}
+                      fontWeight={500}
+                      fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                    >
+                      #2
+                    </Text>
+                    <Text
+                      color={"gray.100"}
+                      fontWeight={500}
+                      fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                      px={52}
+                    >
+                      Swap.
+                    </Text>
+                    <br />
+                    <br />
+                    <Button
+                      fontSize="24px"
+                      transition={"all 0.3s ease"}
+                      colorScheme={"blue"}
+                      bgImage={
+                        "linear-gradient(to right, RGB(220,77,1), RGB(234, 206, 9))"
+                      }
+                      border={"1"}
+                      rounded={"full"}
+                      px={12}
+                      fontWeight={700}
+                      py={8}
+                      _hover={{
+                        border: "1px solid rgba(var(--primary-color), 0.5)",
+                        color: "black",
+                        transition: "all 2s ease",
+                      }}
+                      onClick={handleSwap}
+                    >
+                      {" "}
+                      SWAP{" "}
+                    </Button>
+                  </Flex>
+                </Container>
                 <br />
                 <br />
                 <Text
@@ -442,81 +462,93 @@ export default function Swap() {
                 <br />
                 <br />
                 {/* Borrow */}
-                <Text
-                  color={"red.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                >
-                  #3
-                </Text>
-                <Text
-                  color={"gray.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                >
-                  Borrow.
-                </Text>
-                <br />
-                <Button
-                  fontSize="24px"
-                  transition={"all 0.3s ease"}
-                  colorScheme={"blue"}
-                  bgImage={
-                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
-                  }
-                  border={"1"}
-                  rounded={"full"}
-                  px={12}
-                  py={8}
-                  _hover={{
-                    border: "1px solid rgba(var(--primary-color), 0.5)",
-                    color: "yellow",
-                    transition: "all 2s ease",
-                  }}
-                  onClick={() => write2?.()}
-                >
-                  {" "}
-                  BORROW{" "}
-                </Button>
+                <Container maxW={"3xl"}>
+                  <Flex align="center">
+                    <Text
+                      color={"red.100"}
+                      fontWeight={500}
+                      fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                    >
+                      #3
+                    </Text>
+                    <Text
+                      color={"gray.100"}
+                      fontWeight={500}
+                      fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                      px={48}
+                    >
+                      Borrow.
+                    </Text>
+                    <br />
+                    <Button
+                      fontSize="24px"
+                      transition={"all 0.3s ease"}
+                      colorScheme={"blue"}
+                      bgImage={
+                        "linear-gradient(to right, RGB(220,77,1), RGB(234, 206, 9))"
+                      }
+                      fontWeight={700}
+                      border={"1"}
+                      rounded={"full"}
+                      px={12}
+                      py={8}
+                      _hover={{
+                        border: "1px solid rgba(var(--primary-color), 0.5)",
+                        color: "black",
+                        transition: "all 2s ease",
+                      }}
+                      onClick={() => write2?.()}
+                    >
+                      {" "}
+                      BORROW{" "}
+                    </Button>
+                  </Flex>
+                </Container>
                 <br />
                 <br />
                 {/* MultiCall */}
-                <Text
-                  color={"red.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                >
-                  #3
-                </Text>
-                <Text
-                  color={"gray.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                >
-                  Multicall.
-                </Text>
-                <br />
-                <Button
-                  fontSize="24px"
-                  transition={"all 0.3s ease"}
-                  colorScheme={"blue"}
-                  bgImage={
-                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
-                  }
-                  border={"1"}
-                  rounded={"full"}
-                  px={12}
-                  py={8}
-                  _hover={{
-                    border: "1px solid rgba(var(--primary-color), 0.5)",
-                    color: "yellow",
-                    transition: "all 2s ease",
-                  }}
-                  onClick={handleMulticall}
-                >
-                  {" "}
-                  MULTICALL! F* YEAH!{" "}
-                </Button>
+                <Container maxW={"3xl"}>
+                  <Flex align="center">
+                    <Text
+                      color={"red.100"}
+                      fontWeight={500}
+                      fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                    >
+                      #3
+                    </Text>
+                    <Text
+                      color={"gray.100"}
+                      fontWeight={500}
+                      fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                      px={40}
+                    >
+                      Multicall.
+                    </Text>
+                    <br />
+                    <Button
+                      fontSize="24px"
+                      transition={"all 0.3s ease"}
+                      colorScheme={"blue"}
+                      bgImage={
+                        "linear-gradient(to right, RGB(220,77,1), RGB(234, 206, 9))"
+                      }
+                      border={"1"}
+                      rounded={"full"}
+                      fontWeight={700}
+                      px={12}
+                      py={8}
+                      _hover={{
+                        border: "1px solid rgba(var(--primary-color), 0.5)",
+                        color: "black",
+                        transition: "all 2s ease",
+                      }}
+                      onClick={handleMulticall}
+                    >
+                      {" "}
+                      MULTICALL! F* YEAH!{" "}
+                    </Button>
+                  </Flex>
+                </Container>
                 {/* State */}
                 <Text
                   color={"white"}
@@ -533,9 +565,7 @@ export default function Swap() {
                   )}
                 </Text>
               </Container>
-
-              <br /> <br /> <br />
-              <br />
+              <br /> <br /> <br /> <br />
               <hr />
               <br />
               <br />
@@ -543,163 +573,138 @@ export default function Swap() {
               <br />
               <br />
               <hr />
+              <br /> <br />
+              <br /> <br />
               <br /> <br />{" "}
-              <Container centerContent maxW={"3xl"} py={8}>
-                <Text
-                  color={"gray.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                  padding={10}
-                >
-                  One-Click DEX Swaps
-                  <br />
-                  <br />
-                  ....
-                </Text>
-                <Button
-                  fontSize="24px"
-                  transition={"all 0.3s ease"}
-                  colorScheme={"blue"}
-                  bgImage={
-                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
-                  }
-                  border={"1"}
-                  rounded={"full"}
-                  px={12}
-                  py={8}
-                  _hover={{
-                    border: "1px solid rgba(var(--primary-color), 0.5)",
-                    color: "yellow",
-                    transition: "all 2s ease",
-                  }}
-                  onClick={() => router.push("/your-zaaps")}
-                >
-                  Swap
-                </Button>
-
-
+              <Container centerContent maxW={"3xl"} py={2}>
+                <Flex align="center">
+                  <Text
+                    color={"gray.100"}
+                    fontWeight={500}
+                    fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                    padding={10}
+                  >
+                    One-Click DEX Swaps
+                    <br />
+                    <br />
+                    ....
+                  </Text>
+                  <Button
+                    fontSize="24px"
+                    transition={"all 0.3s ease"}
+                    bgColor={"gray.500"}
+                    border={"1"}
+                    rounded={"full"}
+                    px={12}
+                    py={8}
+                    _hover={{
+                      border: "1px solid rgba(var(--primary-color), 0.5)",
+                      color: "red",
+                      transition: "all 2s ease",
+                    }}
+                    onClick={() => router.push("/your-zaaps")}
+                  >
+                    Soon&#8482;
+                  </Button>
+                </Flex>
               </Container>
-              <Container centerContent maxW={"3xl"} py={8}>
-                <Text
-                  color={"gray.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                  padding={10}
-                >
-                  LP Withdraw & Buy
-                  <br />
-                  <br />
-                  Deposit ETH into AAVE(any lending on protocool on zkSync
-                  testnet), withdraw USDC and swap ETH to perform desired
-                  action.
-                </Text>
-                <Button
-                  fontSize="24px"
-                  transition={"all 0.3s ease"}
-                  colorScheme={"blue"}
-                  bgImage={
-                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
-                  }
-                  border={"1"}
-                  rounded={"full"}
-                  px={12}
-                  py={8}
-                  _hover={{
-                    border: "1px solid rgba(var(--primary-color), 0.5)",
-                    color: "yellow",
-                    transition: "all 2s ease",
-                  }}
-                  onClick={() => router.push("/your-zaaps")}
-                >
-                  Swap
-                </Button>
-
+              <Container centerContent maxW={"3xl"} py={2}>
+                <Flex align="center">
+                  <Text
+                    color={"gray.100"}
+                    fontWeight={500}
+                    fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                    padding={10}
+                  >
+                    LP Withdraw & Buy
+                    <br />
+                    <br />
+                    Deposit ETH into AAVE(any lending on protocool on zkSync
+                    testnet), withdraw USDC and swap ETH to perform desired
+                    action.
+                  </Text>
+                  <Button
+                    fontSize="24px"
+                    transition={"all 0.3s ease"}
+                    bgColor={"gray.500"}
+                    border={"1"}
+                    rounded={"full"}
+                    px={12}
+                    py={8}
+                    _hover={{
+                      border: "1px solid rgba(var(--primary-color), 0.5)",
+                      color: "red",
+                      transition: "all 2s ease",
+                    }}
+                    onClick={() => router.push("/your-zaaps")}
+                  >
+                    Soon&#8482;
+                  </Button>
+                </Flex>
               </Container>
-              <Container centerContent maxW={"3xl"} py={8}>
-                <Text
-                  color={"gray.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                  padding={10}
-                >
-                  One-Click Multichain NFT Purchase
-                  <br />
-                  <br />
-                  ....
-                </Text>
-                <Button
-                  fontSize="24px"
-                  transition={"all 0.3s ease"}
-                  colorScheme={"blue"}
-                  bgImage={
-                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
-                  }
-                  border={"1"}
-                  rounded={"full"}
-                  px={12}
-                  py={8}
-                  _hover={{
-                    border: "1px solid rgba(var(--primary-color), 0.5)",
-                    color: "yellow",
-                    transition: "all 2s ease",
-                  }}
-                  onClick={() => router.push("/your-zaaps")}
-                >
-                  Swap
-                </Button>
-
+              <Container centerContent maxW={"3xl"} py={2}>
+                <Flex align="center">
+                  <Text
+                    color={"gray.100"}
+                    fontWeight={500}
+                    fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                    padding={10}
+                  >
+                    One-Click Multichain NFT Purchase
+                    <br />
+                    <br />
+                    ....
+                  </Text>
+                  <Button
+                    fontSize="24px"
+                    transition={"all 0.3s ease"}
+                    bgColor={"gray.500"}
+                    border={"1"}
+                    rounded={"full"}
+                    px={12}
+                    py={8}
+                    _hover={{
+                      border: "1px solid rgba(var(--primary-color), 0.5)",
+                      color: "red",
+                      transition: "all 2s ease",
+                    }}
+                    onClick={() => router.push("/your-zaaps")}
+                  >
+                    Soon&#8482;
+                  </Button>
+                </Flex>
               </Container>
-              <Container centerContent maxW={"3xl"} py={8}>
-                <Text
-                  color={"gray.100"}
-                  fontWeight={500}
-                  fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-                  padding={10}
-                >
-                  Private Swaps
-                  <br />
-                  <br />
-                  ....
-                </Text>
-                <Button
-                  fontSize="24px"
-                  transition={"all 0.3s ease"}
-                  colorScheme={"blue"}
-                  bgImage={
-                    "linear-gradient(to right, rgb(1 134 218), rgb(182 49 167))"
-                  }
-                  border={"1"}
-                  rounded={"full"}
-                  px={12}
-                  py={8}
-                  _hover={{
-                    border: "1px solid rgba(var(--primary-color), 0.5)",
-                    color: "yellow",
-                    transition: "all 2s ease",
-                  }}
-                  onClick={() => router.push("/your-zaaps")}
-                >
-                  Swap
-                </Button>
+              <Container centerContent maxW={"3xl"} py={2}>
+                <Flex align="center">
+                  <Text
+                    color={"gray.100"}
+                    fontWeight={500}
+                    fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
+                    padding={10}
+                  >
+                    Private Swaps
+                  </Text>
+                  <Button
+                    fontSize="24px"
+                    transition={"all 0.3s ease"}
+                    bgColor={"gray.500"}
+                    border={"1"}
+                    rounded={"full"}
+                    px={12}
+                    py={8}
+                    _hover={{
+                      border: "1px solid rgba(var(--primary-color), 0.5)",
+                      color: "red",
+                      transition: "all 2s ease",
+                    }}
+                    onClick={() => router.push("/your-zaaps")}
+                  >
+                    Soon&#8482;
+                  </Button>
+                </Flex>
               </Container>
             </Stack>
           </Stack>
-
-          <Container
-            centerContent
-            maxW={"3xl"}
-            fontWeight={500}
-            fontSize={{ base: "xl", sm: "xl", md: "2xl" }}
-          >
-            <Text fontWeight={500}>List of zkSync Testnet Tokens:</Text>
-            <br />
-            <Link
-              fontWeight={400}
-              href="https://zksync2-testnet.zkscan.io/tokens"
-            >
-              https://zksync2-testnet.zkscan.io/tokens
-            </Link>
-          </Container>
 
           <br />
         </Container>
